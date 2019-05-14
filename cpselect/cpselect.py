@@ -1,6 +1,7 @@
 import sys
 import os
 
+import click
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -410,3 +411,16 @@ class _ControlPoint:
         }
 
         return dict
+
+
+@click.command()
+@click.argument('arg1')
+@click.argument('arg2')
+def main(arg1, arg2):
+    coords = cpselect(arg1, arg2)
+    print(coords)
+    return coords
+
+
+if __name__ == '__main__':
+    main()
